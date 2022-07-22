@@ -1,0 +1,32 @@
+<template>
+	<template if:true = {isVisible}>
+		<lightning-card title="Fill Details">
+			<div class="slds-var-m-around_medium">
+				<lightning-input label="Salutation" name="inpSalutation" value={Salutation} onchange={handleSalutationChange}>
+				</lightning-input>
+				<lightning-input label="First Name" name="inpFName" value={FName} onchange={handleFirstNameChange}>
+				</lightning-input>
+				<lightning-input label="Last Name" name="inpLName" value={LName} onchange={handleLastNameChange} required>
+				</lightning-input>
+				<lightning-input type="email" name="inpEmail" value={Email} label="Email" onchange={handleEmailChange} required>
+				</lightning-input>
+				<lightning-input type="tel" label="Telephone" value={Phone} onchange={handlePhoneChange} pattern="[0-9]{12}" maxlength="12" minlength="12" required>
+				</lightning-input>
+				<lightning-input type="date" name="Dob" label="Date Of Birth" onchange={handleBirthDateChange} required>
+				</lightning-input>
+				<lightning-input type="datetime" name="ApplicationSubmitDate" label="Application Submit Date"
+					onchange={handleApplicationSubmitDateChange}>
+				</lightning-input>
+			</div>
+			<div class="slds-col slds-size_12-of-12 slds-p-horizontal--small slds-m-bottom--medium slds-text-align--center">
+				<lightning-button variant="brand" label="Add Value" onclick={handleAddValueClick}></lightning-button>
+			</div>
+		</lightning-card>
+	</template>
+	<br>
+    <template if:true={isChildVisible}>
+		<c-child salu={UserSalutation} firstname={FirstName} lastname={LastName} email={UserEmail} phn={UserPhone}
+			birthdate={UserDob} applicationsubmission={UserApplicationSubmitDate} onclose = {closeHandler}>
+		</c-child>
+    </template>
+</template>
