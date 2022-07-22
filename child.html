@@ -1,0 +1,27 @@
+<template>
+	<lightning-card title="Confirm Details">
+		<div class="slds-var-m-around_medium">
+			Salutation:- {salu} <br>
+			First Name:- {firstname} <br>
+			Last Name:- {lastname}<br>
+			User Email:- {email} <br>
+			User Phone Number:- {phn} <br>
+			User Date Of Birth:- {birthdate} <br>
+			User DateTime Of Application Submission:- {applicationsubmission}<br>
+			<template if:true={isCheckboxVisible}>
+				<lightning-input class="slds-p-left_xx-large" type="checkbox" label="Check if the values are correct"
+					onchange={handleCheck}>
+				</lightning-input>
+			</template>
+		</div>
+		<br>
+		<div class="slds-col slds-size_12-of-12 slds-p-horizontal--small slds-m-bottom--medium slds-text-align--center">
+			<template if:true={isSaveVisible}>
+				<lightning-button variant="brand" label="Save" onclick={handleSaveClick} style='margin-right:16px'></lightning-button>
+			</template>
+			<template if:true={isCheckboxVisible}>
+				<lightning-button variant="brand" label="Cancel" onclick={handleCancelClick} style='margin-right:16px'></lightning-button>
+			</template>
+		</div>
+	</lightning-card>
+</template>
